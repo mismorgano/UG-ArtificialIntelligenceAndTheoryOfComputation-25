@@ -1,0 +1,11 @@
+Martin_2011:
+  type: book
+  title: Introduction to languages and the theory of computation
+  author: Martin, John C.
+  date: 2011
+  publisher: McGraw-Hill
+  edition: 4th ed.
+  page-range: XII, 436
+  serial-number:
+    isbn: 978-007-128942-9
+  note: 'Bibliografija: str. 425-426'
