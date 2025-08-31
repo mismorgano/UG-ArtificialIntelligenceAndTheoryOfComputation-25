@@ -9,3 +9,14 @@ Martin_2011:
   serial-number:
     isbn: 978-007-128942-9
   note: 'Bibliografija: str. 425-426'
+
+Sipser_2013:
+  type: book
+  title: Introduction to the Theory of Computation
+  author: Michael Sipser
+  date: 2013
+  publisher: Cengage Learning
+  edition: 3rd ed.
+  serial-number:
+    isbn: 978-1-133-18779-0
+    
