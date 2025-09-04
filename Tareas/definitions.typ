@@ -17,6 +17,8 @@
   show "ER": [expresión regular]
   show "ERs": [expresiones regulares]
   show "GLC": [gramática libre de contexto]
+  show "GLCs": [gramáticas libres de contexto]
+  show "LLC": [lenguaje libre de contexto]
   show "LLCs": [lenguajes libres de contexto]
 
   // #set par(justify: false)
