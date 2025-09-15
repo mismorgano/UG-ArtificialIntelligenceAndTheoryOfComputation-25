@@ -21,6 +21,9 @@
   show "LLC": [lenguaje libre de contexto]
   show "LLCs": [lenguajes libres de contexto]
 
+  show "MT": [máquina de Turing]
+  show "MTs": [máquinas de Turing]
+
   // #set par(justify: false)
   show math.equation.where(block: false): box
   set cite(form: "prose", style: "alphanumeric")
