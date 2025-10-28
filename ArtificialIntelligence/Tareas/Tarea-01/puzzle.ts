@@ -1,32 +1,47 @@
-export { };
+'use strict'
+import {Board} from './board' ;
 
+const play = document.getElementById('playId');
+let board: Board;
+play?.addEventListener("click", () => {
+    const level = document.getElementById('level') as HTMLInputElement;
+    const boardElement = document.getElementById('board') as HTMLTableElement;
+
+    let boardSize = level.valueAsNumber;
+
+    // makeBoard(boardElement, boardSize, {});
+    board = new Board(boardElement, boardSize);
+    console.log(board)
+    board.makeBoard();
+
+    // for (const row of board) {
+    //     for (const square of row) {
+    //         square.style.height = '20px';
+    //         square.style.width = '20px';
+    //         square.style.backgroundColor = 'red'
+    //     }
+    // }
+
+});
 document.addEventListener("DOMContentLoaded", main);
 
+document.addEventListener('keydown', (event) => {
+    if(event.key === "ArrowUp") {
+        board.move('up');
+    } else if(event.key === "ArrowDown") {
+        board.move('down');
+    } else  if(event.key === "ArrowLeft") {
+        board.move('left');
+    } else  if(event.key === "ArrowRight") {
+        board.move('right');
+    }
+});
 function main() {
-    const play = document.getElementById('play');
-    play?.addEventListener("click", () => {
-        const level = document.getElementById('level') as HTMLInputElement;
-        const boardElement = document.getElementById('board') as HTMLTableElement;
 
-        let boardSize = level.valueAsNumber;
-
-        // makeBoard(boardElement, boardSize, {});
-        const board = makeBoard(boardElement, boardSize, {});
-        console.log(board)
-
-        for (const row of board) {
-            for (const square of row) {
-                square.style.height = '20px';
-                square.style.width = '20px';
-                square.style.backgroundColor = 'red'
-            }
-        }
-
-    });
     // document.addEventListener("click")    
 }
 
-export default function makeBoard(board: HTMLTableElement, boardSize: number, params: object) {
+function makeBoard(board: HTMLTableElement, boardSize: number, params: object) {
 
     board.innerHTML = '';
 

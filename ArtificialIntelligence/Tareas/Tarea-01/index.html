@@ -5,17 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>8 puzzle</title>
-    <script src="puzzle.js" type="module"></script>
+    <script defer src="dist/puzzle.js"></script>
 </head>
 
 <body>
-    <div>
-        <form>
-            <label> Ingresa el nivel:<input type="number" id="level" min="3" max="8" required></label>
-            <input type="button" value="play" id="play">
-        </form>
-    </div>
-    <table id="board"></table>
+    <main>
+        <section>
+            <div>
+
+                <label> Ingresa el nivel:<input type="number" id="level" min="3" max="8" required></label>
+                <input type="button" value="play" id="playId">
+
+            </div>
+            <table id="board"></table>
+        </section>
+    </main>
 </body>
 
 </html>
