@@ -1,8 +1,10 @@
 # pdfs
 *.pdf
 
-# bundled files
+# compiled files
 **/dist
+# bundled files
+**/out
 
 # node / eleventy project
 **/node_modules
