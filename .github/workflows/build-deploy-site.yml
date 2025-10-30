@@ -41,7 +41,7 @@ jobs:
       - name: Compile Typst files
         run: |          
           cd ..
-          mkdir site/_site/pdfs
+          mkdir -p site/_site/pdfs
           for file in $(find . -type f -name "*.typ"); do
             typst compile "$file" "site/_site/pdfs/$(basename "$file" .typ).pdf" --root .
           done
