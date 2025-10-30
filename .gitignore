@@ -1,5 +1,13 @@
 # pdfs
 *.pdf
 
+# bundled files
+**/dist
+
+# node / eleventy project
+**/node_modules
+**/_site
+
+
 # personal config files
 .vscode
