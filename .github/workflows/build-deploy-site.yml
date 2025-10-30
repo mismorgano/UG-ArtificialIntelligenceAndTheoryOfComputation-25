@@ -1,0 +1,75 @@
+name: Build  Typst PDFs and deploy site to GitHub pages
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+
+    permissions:
+      contents: write
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Typst setup
+        uses: typst-community/setup-typst@v4
+
+      - name: Bun setup
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+  
+      - name: Setup pages
+        uses: actions/configure-pages@v5
+
+      - name: Setup 11ty and build site
+        run: |
+          mv site
+          bun install
+          bun index.ts
+          bun run build
+
+      - name: Compile Typst files
+        run: |          
+          mv ..
+          mkdir site/_site/pdfs
+          for file in $(find . -type f -name "*.typ"); do
+            typst compile "$file" "site/_site/pdfs/$(basename "$file" .typ).pdf" --root .
+          done
+
+      - name: Change to gh-pages branch
+        run: |
+          git fetch origin
+          if ! git switch gh-pages: then
+            git switch -c gh-pages           
+
+      - name: Upload PDFs as artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site/
+          
+  deploy:
+    
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+      
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
