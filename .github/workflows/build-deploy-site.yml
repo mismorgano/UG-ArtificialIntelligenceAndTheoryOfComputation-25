@@ -33,14 +33,14 @@ jobs:
 
       - name: Setup 11ty and build site
         run: |
-          mv site
+          cd site
           bun install
           bun index.ts
           bun run build
 
       - name: Compile Typst files
         run: |          
-          mv ..
+          cd ..
           mkdir site/_site/pdfs
           for file in $(find . -type f -name "*.typ"); do
             typst compile "$file" "site/_site/pdfs/$(basename "$file" .typ).pdf" --root .
