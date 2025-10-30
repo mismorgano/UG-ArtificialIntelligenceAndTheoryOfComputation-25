@@ -1,5 +1,4 @@
-'use strict'
-import {Board} from './board' ;
+import { Board } from './board.js';
 
 const play = document.getElementById('playId');
 let board: Board;
@@ -26,13 +25,13 @@ play?.addEventListener("click", () => {
 document.addEventListener("DOMContentLoaded", main);
 
 document.addEventListener('keydown', (event) => {
-    if(event.key === "ArrowUp") {
+    if (event.key === "ArrowUp") {
         board.move('up');
-    } else if(event.key === "ArrowDown") {
+    } else if (event.key === "ArrowDown") {
         board.move('down');
-    } else  if(event.key === "ArrowLeft") {
+    } else if (event.key === "ArrowLeft") {
         board.move('left');
-    } else  if(event.key === "ArrowRight") {
+    } else if (event.key === "ArrowRight") {
         board.move('right');
     }
 });

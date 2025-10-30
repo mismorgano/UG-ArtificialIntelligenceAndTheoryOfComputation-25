@@ -68,6 +68,9 @@ class Board {
         this.board = squares;
 
     }
+    get size(){
+        return this.boardSize;
+    }
     /**
      * Swap the css and text of the squares
      * @param pos1 Position in the board
