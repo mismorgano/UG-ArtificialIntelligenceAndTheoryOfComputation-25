@@ -49,8 +49,9 @@ jobs:
       - name: Change to gh-pages branch
         run: |
           git fetch origin
-          if ! git switch gh-pages: then
-            git switch -c gh-pages           
+          if ! git switch gh-pages; then
+            git switch -c gh-pages 
+          fi          
 
       - name: Upload PDFs as artifact
         uses: actions/upload-pages-artifact@v3
