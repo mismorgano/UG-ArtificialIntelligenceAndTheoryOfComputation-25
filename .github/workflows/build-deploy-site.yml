@@ -20,8 +20,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       
-      - name: Typst setup
-        uses: typst-community/setup-typst@v4
+      # - name: Typst setup
+      #   uses: typst-community/setup-typst@v4
 
       - name: Bun setup
         uses: oven-sh/setup-bun@v2
@@ -38,13 +38,13 @@ jobs:
           bun index.ts
           bun run build
 
-      - name: Compile Typst files
-        run: |          
-          cd ..
-          mkdir -p site/_site/pdfs
-          for file in $(find . -type f -name "*.typ"); do
-            typst compile "$file" "site/_site/pdfs/$(basename "$file" .typ).pdf" --root .
-          done
+      # - name: Compile Typst files
+      #   run: |          
+      #     cd ..
+      #     mkdir -p site/_site/pdfs
+      #     for file in $(find . -type f -name "*.typ"); do
+      #       typst compile "$file" "site/_site/pdfs/$(basename "$file" .typ).pdf" --root .
+      #     done
 
       - name: Change to gh-pages branch
         run: |
