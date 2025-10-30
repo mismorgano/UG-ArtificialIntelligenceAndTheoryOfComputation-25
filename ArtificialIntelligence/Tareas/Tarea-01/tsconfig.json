@@ -8,5 +8,5 @@
         "outDir": "./dist",
         "sourceMap": true
     },
-    "include": ["."]
+    "include": ["./src"]
 }
