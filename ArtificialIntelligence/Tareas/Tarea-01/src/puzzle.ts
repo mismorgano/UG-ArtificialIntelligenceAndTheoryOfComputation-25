@@ -12,7 +12,7 @@ play?.addEventListener("click", () => {
     board = new Board(boardElement, boardSize);
     console.log(board)
     board.makeBoard();
-
+    makeRandomState(board, 10);
     // for (const row of board) {
     //     for (const square of row) {
     //         square.style.height = '20px';
@@ -38,6 +38,32 @@ document.addEventListener('keydown', (event) => {
 function main() {
 
     // document.addEventListener("click")    
+}
+
+/**
+ * Dictionary of moves
+ */
+const MOVE = { 0: "up", 1: "right", 2: "down", 3: "left" };
+
+/**
+ * Make a random Move
+ * @returns A random move
+ */
+function makeRandomMove() {
+    const state = Math.floor(Math.random() * 4);
+    return MOVE[state as keyof typeof MOVE];
+}
+
+/**
+ * It changes board from it's final state to a state that's not more far away than a 'bounded' number of movements
+ * @param board The Board to change the state
+ * @param bounded The Maximum number of movements of the new state to the final state
+ */
+function makeRandomState(board: Board, bounded: number) {
+    for (let index = 0; index < bounded; index++) {
+        const move = makeRandomMove();
+        board.move(move);
+    }
 }
 
 function makeBoard(board: HTMLTableElement, boardSize: number, params: object) {
