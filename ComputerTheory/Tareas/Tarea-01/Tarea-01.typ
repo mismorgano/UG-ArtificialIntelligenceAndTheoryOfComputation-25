@@ -237,4 +237,4 @@ en @Martin_2011 que básicamente nos dicen a que estado(s) podemos llegar inicia
   mismo estado y por tanto se debe cumplir que $abs(Q) >= abs(L slash ~)$
 
 ]
-#bibliography("../../biblio.yml")
+#bibliography("../../../biblio.yml")

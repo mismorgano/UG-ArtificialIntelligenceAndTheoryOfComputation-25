@@ -58,6 +58,4 @@
 #exercise[20 pts][
   Sea *B* el lenguaje de todas las cadenas palindromicas en ${0, 1}$ que contienen la misma cantidad de 0's que de 1's.
   Muestre que *B* no es libre de contexto.
-]
-
-#bibliography("../../biblio.yml")
+]#bibliography("../../../biblio.yml")
