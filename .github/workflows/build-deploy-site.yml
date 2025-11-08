@@ -20,8 +20,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       
-      # - name: Typst setup
-      #   uses: typst-community/setup-typst@v4
+      - name: Typst setup
+        uses: typst-community/setup-typst@v4
+      
+      - name: Setup typst local package (tortugui)
+        run: |
+          mkdir -p ~/.local/share/typst/packages/local/tortugui
+          git clone https://github.com/mismorgano/tortugui.git ~/.local/share/typst/packages/local/tortugui
 
       - name: Bun setup
         uses: oven-sh/setup-bun@v2
