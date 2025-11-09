@@ -6,6 +6,9 @@ export default async function(eleventyConfig) {
 	// to get a live server on my root directory
 	eleventyConfig.setInputDirectory("..");
 
+	// avoid including this site/ directory in the build
+	eleventyConfig.ignores.add(".")
+
 	// to just copy bundled files
     eleventyConfig.addPassthroughCopy('../ArtificialIntelligence/Tareas/Tarea-01/out/');
 
