@@ -44,8 +44,7 @@ jobs:
           bun run build
 
       - name: Compile Typst files
-        run: |          
-          cd ..
+        run: |                    
           mkdir -p site/_site/pdfs
           for file in $(find . -type f -name "*.typ"); do
             typst compile "$file" "site/_site/pdfs/$(basename "$file" .typ).pdf" --root .
