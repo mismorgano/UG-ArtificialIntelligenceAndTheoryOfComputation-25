@@ -47,7 +47,9 @@ jobs:
         run: |                    
           mkdir -p site/_site/pdfs
           for file in $(find . -type f -name "*.typ"); do
-            typst compile "$file" "site/_site/pdfs/$(basename "$file" .typ).pdf" --root .
+            new_path="site/_site/pdfs/${file/Tareas*/}$(basename "$file" .typ).pdf"
+            mkdir -p "$(dirname "$new_path")"
+            typst compile "$file" "$new_path" --root .
           done
 
       - name: Change to gh-pages branch
