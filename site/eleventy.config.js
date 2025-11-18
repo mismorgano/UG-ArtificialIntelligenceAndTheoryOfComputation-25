@@ -1,4 +1,4 @@
-import { glob } from 'fs/promises';
+import { glob } from 'node:fs/promises';
 import path from 'path';
 
 export default async function (eleventyConfig) {
@@ -33,7 +33,7 @@ export default async function (eleventyConfig) {
 			}
 		});
 		return pdfs;
-		
+
 		// return collectionAPI.getFilteredByGlob("_site/pdfs/*") doesn't work 
 		// because according to the docs it will ignore the .pdf files because .pdf is not supported by 11ty
 	});
