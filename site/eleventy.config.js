@@ -8,7 +8,7 @@ export default async function (eleventyConfig) {
 	// to just copy bundled files
 	eleventyConfig.addPassthroughCopy({ '../ArtificialIntelligence/Tareas/Tarea-01/out/': '/ArtificialIntelligence/Tareas/Tarea-01/out/' });
 	// to copy index.html from assignment
-	eleventyConfig.addPassthroughCopy({ '../ArtificialIntelligence/Tareas/Tarea-01/index.html': '/ArtificialIntelligence/Tareas/Tarea-01/' });
+	eleventyConfig.addPassthroughCopy({ '../ArtificialIntelligence/Tareas/Tarea-01/index.html': '/ArtificialIntelligence/Tareas/Tarea-01/index.html' });
 
 	// add my own collection, it implies return a list of objects
 	eleventyConfig.addCollection("pdfs", async (collectionAPI) => {
