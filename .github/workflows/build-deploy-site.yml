@@ -27,7 +27,16 @@ jobs:
         run: |
           mkdir -p ~/.local/share/typst/packages/local/tortugui
           git clone https://github.com/mismorgano/tortugui.git ~/.local/share/typst/packages/local/tortugui
-
+      
+      - name: Compile Typst files
+        run: |                    
+          mkdir -p site/_site/pdfs
+          for file in $(find . -type f -name "*.typ"); do
+            new_path="site/_site/pdfs/${file/Tareas*/}$(basename "$file" .typ).pdf"
+            mkdir -p "$(dirname "$new_path")"
+            typst compile "$file" "$new_path" --root .
+          done
+      
       - name: Bun setup
         uses: oven-sh/setup-bun@v2
         with:
@@ -47,22 +56,6 @@ jobs:
           bun install
           bun index.ts
           bun run build
-
-      - name: Compile Typst files
-        run: |                    
-          mkdir -p site/_site/pdfs
-          for file in $(find . -type f -name "*.typ"); do
-            new_path="site/_site/pdfs/${file/Tareas*/}$(basename "$file" .typ).pdf"
-            mkdir -p "$(dirname "$new_path")"
-            typst compile "$file" "$new_path" --root .
-          done
-
-      - name: Change to gh-pages branch
-        run: |
-          git fetch origin
-          if ! git switch gh-pages; then
-            git switch -c gh-pages 
-          fi          
 
       - name: Upload PDFs as artifact
         uses: actions/upload-pages-artifact@v3
