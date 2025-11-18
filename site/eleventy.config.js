@@ -29,7 +29,7 @@ export default async function (eleventyConfig) {
 			return {
 				title: path.basename(f, ".pdf"),
 				course: sep[0],
-				url: `/pdfs/${newPath}`,
+				url: `./pdfs/${newPath}`,
 			}
 		});
 		return pdfs;
